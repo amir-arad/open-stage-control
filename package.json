@@ -1,7 +1,7 @@
 {
-  "name": "open-stage-control-builder",
+  "name": "open-stage-control-web",
   "productName": "Open Stage Control",
-  "description": "[Builder package] A libre desktop OSC bi-directionnal control surface application",
+  "description": "A libre web OSC bi-directionnal control surface application",
   "version": "0.21.0",
   "author": {
     "name": "Jean-Emmanuel Doucet / AMMD",
@@ -10,15 +10,25 @@
   "keywords": [
     "osc",
     "midi",
-    "interface",
-    "multi-touch"
+    "interface"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jean-emmanuel/open-stage-control"
+    "url": "git@github.com:amir-arad/open-stage-control.git"
   },
   "homepage": "http://osc.ammd.net/",
   "license": "GPL-3.0",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npm run build-js -- --prod && npm run build-css",
+    "watch-css": "nodemon --watch src/browser/scss -e scss -x \"npm run build-css && node scripts/reload-css.js\"",
+    "watch-js": "nodemon --watch src/browser/js -e js -x \"npm run build-js\"",
+    "watch-themes": "nodemon --watch main/themes -e css -x \"node scripts/reload-css.js\"",
+    "build-css": "node-sass --include-path src/browser/scss src/browser/scss/style.scss browser/styles.css --output-style compressed",
+    "build-js": "node scripts/build-js.js > browser/scripts.js",
+    "deploy-docs": "cd resources && mkdocs gh-deploy --clean && rm -rf site",
+    "test": "npm run build-js && npm run build-css"
+  },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "*",
@@ -49,18 +59,6 @@
     "jquery": "3.2.1",
     "chokidar": "1.7.0",
     "python-shell":"0.4.0"
-  },
-  "scripts": {
-    "postinstall": "npm run build-js && npm run build-css",
-    "start": "node index.js",
-    "build": "npm run build-js -- --prod && npm run build-css",
-    "watch-css": "nodemon --watch src/browser/scss -e scss -x \"npm run build-css && node scripts/reload-css.js\"",
-    "watch-js": "nodemon --watch src/browser/js -e js -x \"npm run build-js\"",
-    "watch-themes": "nodemon --watch main/themes -e css -x \"node scripts/reload-css.js\"",
-    "build-css": "node-sass --include-path src/browser/scss src/browser/scss/style.scss browser/styles.css --output-style compressed",
-    "build-js": "node scripts/build-js.js > browser/scripts.js",
-    "deploy-docs": "cd resources && mkdocs gh-deploy --clean && rm -rf site",
-    "test": "npm run build-js && npm run build-css"
   },
   "engines": {
     "node": "6"
