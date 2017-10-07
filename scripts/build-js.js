@@ -20,6 +20,6 @@ if (prod) b = b.transform('uglifyify', {global: true})
 
 b = b.bundle()
 
-if (!fast) b = b.pipe(exorcist(path.resolve(__dirname + '/../app/browser/scripts.js.map')))
+if (!fast) b = b.pipe(exorcist(path.resolve(__dirname + '/../browser/scripts.js.map')))
 
 b.pipe(process.stdout)

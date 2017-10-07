@@ -2,7 +2,7 @@
 // (electron-rebuild breaks it for node-only mode)
 require('vmodule')('serialport', {}, {global: true})
 
-var osc = require('osc'),
+var osc = require('server/osc'),
 	ipc = require('./server').ipc,
 	settings = require('./settings'),
 	oscInPort = settings.read('oscInPort') || settings.read('httpPort'),

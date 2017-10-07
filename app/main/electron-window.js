@@ -1,7 +1,7 @@
 var path = require('path'),
     {BrowserWindow} = require('electron'),
     shortcut = require('electron-localshortcut'),
-    settings = require('./settings')
+    settings = require('../../server/settings')
 
 var bgColor = settings.read('theme') && settings.read('theme').indexOf('--color-bg:') != -1 ?
                 settings.read('theme').match(/--color-bg:([^;]*);/)[1].trim()
