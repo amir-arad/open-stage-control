@@ -2,7 +2,7 @@ window.ARGV={};location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v)
 
 ///////////////////////
 
-window.PACKAGE = require('../../../app/package.json')
+window.PACKAGE = require('../../../package.json')
 
 ///////////////////////
 
