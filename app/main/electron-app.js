@@ -1,5 +1,5 @@
 var {app, dialog, Tray, Menu} = require('electron'),
-    settings = require('./settings'),
+    settings = require('../../main/settings'),
     path = require('path'),
     tray
 

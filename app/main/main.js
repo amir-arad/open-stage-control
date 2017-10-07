@@ -1,4 +1,4 @@
-var settings = require('./settings')
+var settings = require('../../main/settings')
 
 var serverStarted
 
@@ -6,9 +6,9 @@ var start = function(readyApp) {
 
     if (!settings.read('guiOnly') && !serverStarted) {
 
-        var server = require('./server'),
-            osc = require('./osc'),
-            callbacks = require('./callbacks')
+        var server = require('../../main/server'),
+            osc = require('../../main/osc'),
+            callbacks = require('../../main/callbacks')
 
         server.bindCallbacks(callbacks)
 
