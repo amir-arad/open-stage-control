@@ -40,6 +40,9 @@ var bindCallbacks = function(callbacks) {
 
         clients[socket.id] = socket
 
+        socket.on('*', (...args) => {
+            console.log('session event', ...args);
+        })
         for (let name in callbacks) {
             socket.on(name, (data)=>{
                 callbacks[name](data,socket.id)

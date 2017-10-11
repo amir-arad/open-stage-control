@@ -1,8 +1,9 @@
 {
   "name": "open-stage-control-web",
   "productName": "Open Stage Control",
-  "description": "A libre web OSC bi-directionnal control surface application",
-  "version": "0.21.0",
+  "description": "A libre web OSC bi-directionnal control surface application (fork of the electron version)",
+  "open-stage-control-version": "0.21.0",
+  "version": "0.0.1",
   "author": {
     "name": "Jean-Emmanuel Doucet / AMMD",
     "email": "jeannot@ammd.net"
@@ -20,6 +21,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "node index.js",
+    "debug": "node --inspect-brk index.js",
     "build": "npm run build-js -- --prod && npm run build-css",
     "watch-css": "nodemon --watch src/browser/scss -e scss -x \"npm run build-css && node scripts/reload-css.js\"",
     "watch-js": "nodemon --watch src/browser/js -e js -x \"npm run build-js\"",
